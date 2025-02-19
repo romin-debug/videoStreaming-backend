@@ -17,7 +17,7 @@ This is a **backend-only** Node.js application for a video streaming platform. I
 
 ## ⚡ Installation & Usage
 ### **1️⃣ Clone the Repository**
-```bash
+
 git clone https://github.com/romin-debug/videoStreaming-backend.git
 cd videoStreaming-backend
 
