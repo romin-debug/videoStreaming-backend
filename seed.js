@@ -8,81 +8,74 @@ import { DB_NAME } from "./src/constants.js";
 import { User } from "./src/models/user.models.js";
 import { Video } from "./src/models/video.models.js";
 
-const G = "https://storage.googleapis.com/gtv-videos-bucket/sample";
+const TV = "https://test-videos.co.uk/vids";
+const W3 = "https://media.w3.org/2010/05";
 
 const SAMPLES = [
+  {
+    key: "SintelTrailer",
+    title: "Sintel (Official Trailer)",
+    description:
+      "A lonely young woman searches for a baby dragon she befriended. A Blender Foundation short film.",
+    url: `${W3}/sintel/trailer.mp4`,
+    duration: 52,
+    views: 254300,
+  },
   {
     key: "BigBuckBunny",
     title: "Big Buck Bunny",
     description:
       "A large and lovable rabbit deals with three tiny bullies in this classic open-source animated short.",
-    duration: 596,
-    views: 128000,
-  },
-  {
-    key: "ElephantsDream",
-    title: "Elephant's Dream",
-    description:
-      "The first Blender Open Movie: two characters explore a strange mechanical world.",
-    duration: 653,
-    views: 87400,
-  },
-  {
-    key: "Sintel",
-    title: "Sintel",
-    description:
-      "A lonely young woman searches for a baby dragon she befriended. A Blender Foundation short film.",
-    duration: 888,
-    views: 254300,
-  },
-  {
-    key: "TearsOfSteel",
-    title: "Tears of Steel",
-    description:
-      "A sci-fi short about a group trying to save the world from destructive robots.",
-    duration: 734,
-    views: 96200,
-  },
-  {
-    key: "ForBiggerBlazes",
-    title: "For Bigger Blazes",
-    description: "Chromecast promo clip. Cast your favorite entertainment to your TV.",
-    duration: 15,
-    views: 30500,
-  },
-  {
-    key: "ForBiggerEscapes",
-    title: "For Bigger Escapes",
-    description: "Introducing Chromecast. The easiest way to enjoy online video on your TV.",
-    duration: 15,
-    views: 21800,
-  },
-  {
-    key: "ForBiggerFun",
-    title: "For Bigger Fun",
-    description: "Cast games, apps and movies to your TV with Chromecast.",
+    url: `${W3}/bunny/movie.mp4`,
     duration: 60,
+    views: 512000,
+  },
+  {
+    key: "BigBuckBunnyTrailer",
+    title: "Big Buck Bunny (Trailer)",
+    description: "The official trailer for the Blender Foundation's Big Buck Bunny.",
+    url: `${W3}/bunny/trailer.mp4`,
+    duration: 33,
+    views: 128400,
+  },
+  {
+    key: "ShortFilm",
+    title: "A Short Film",
+    description: "A short sample film clip used for demoing HTML5 video playback.",
+    url: `${W3}/video/movie_300.mp4`,
+    duration: 28,
     views: 41200,
   },
   {
-    key: "ForBiggerJoyrides",
-    title: "For Bigger Joyrides",
-    description: "Chromecast. For bigger joyrides on the big screen.",
-    duration: 15,
-    views: 18900,
+    key: "Jellyfish720",
+    title: "Jellyfish Aquarium",
+    description: "Relaxing footage of jellyfish drifting through an aquarium tank.",
+    url: `${TV}/jellyfish/mp4/h264/720/Jellyfish_720_10s_1MB.mp4`,
+    duration: 10,
+    views: 87400,
   },
   {
-    key: "SubaruOutbackOnStreetAndDirt",
-    title: "Subaru Outback On Street And Dirt",
-    description: "A short review of the Subaru Outback, on the street and off-road.",
-    duration: 594,
+    key: "BBB1080",
+    title: "Big Buck Bunny in 1080p",
+    description: "A crisp 1080p clip of Big Buck Bunny.",
+    url: `${TV}/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_2MB.mp4`,
+    duration: 10,
     views: 62100,
   },
   {
-    key: "VolkswagenGTIReview",
-    title: "Volkswagen GTI Review",
-    description: "A quick review of the Volkswagen GTI hot hatch.",
-    duration: 588,
+    key: "BBB360",
+    title: "Big Buck Bunny in 360p",
+    description: "A lightweight 360p clip of Big Buck Bunny for slower connections.",
+    url: `${TV}/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4`,
+    duration: 10,
+    views: 30500,
+  },
+  {
+    key: "BBB720",
+    title: "Big Buck Bunny in HD",
+    description: "A 720p HD clip of Big Buck Bunny.",
+    url: `${TV}/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4`,
+    duration: 10,
     views: 51700,
   },
 ];
@@ -119,7 +112,7 @@ const run = async () => {
   const docs = SAMPLES.map((s) => ({
     title: s.title,
     description: s.description,
-    videoFile: `${G}/${s.key}.mp4`,
+    videoFile: s.url,
     thumbnail: `https://picsum.photos/seed/${s.key}/640/360`,
     duration: s.duration,
     views: s.views,
