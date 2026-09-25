@@ -120,7 +120,7 @@ const run = async () => {
     title: s.title,
     description: s.description,
     videoFile: `${G}/${s.key}.mp4`,
-    thumbnail: `${G}/images/${s.key}.jpg`,
+    thumbnail: `https://picsum.photos/seed/${s.key}/640/360`,
     duration: s.duration,
     views: s.views,
     isPublished: true,
